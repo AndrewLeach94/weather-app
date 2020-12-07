@@ -4,6 +4,7 @@
   "description": "Track today's local weather (or anywhere's really)!",
   "private": true,
   "dependencies": {
+    "normalize.css": "^8.0.1",
     "webpack": "^5.10.0",
     "webpack-cli": "^4.2.0"
   },
