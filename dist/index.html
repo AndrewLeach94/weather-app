@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Cabin&family=Sniglet&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/19a9b1b335.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sniglet&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="css/styles.css"></head>
 <body>
-    <header></header>
     <main>
+        <div id="location-container">
+            <div id="measurement-container">
+                <button id="metric" class="button_measurement" type="button">C</button>
+                <button id="imperial" class="button_measurement-selected" type="button">F</button>
+            </div>    
+            <label>
+                <input id="input_location" placeholder="Choose Location">
+            </label>
+            <button id="submit_location" type="button"><i class="fas fa-arrow-right"></i></button>    
+        </div>    
         <div id="current-weather-container-primary">
             <p id="current-conditions"></p>
             <p id="current-city"></p>
@@ -22,6 +32,9 @@
         </div>
     </main>
     <footer>
+        <a href="https://github.com/AndrewLeach94">
+            <i class="fa fa-github" aria-hidden="true"></i>
+        </a>
         <p>Designed by Andrew Leach</p>
     </footer>
     <script src="main.js"></script>

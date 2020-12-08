@@ -1,3 +1,7 @@
-import displayCurrentWeather from "./weather-data";
+import getCurrentWeather from "./weather-data";
+import { applyEventListeners } from "./interface.js";
 
-displayCurrentWeather();
+window.addEventListener("load", () => {
+    getCurrentWeather("New Orleans", "imperial");
+    applyEventListeners();
+});
