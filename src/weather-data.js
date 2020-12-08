@@ -1,31 +1,37 @@
+import { applyCloudyBackground, applySunnyBackground, applyRainyBackground, applySnowyBackground } from "./interface";
 
-const getCurrentWeather = async (requestedLocation) => {
-    try {
-        const response = await fetch('http://api.openweathermap.org/data/2.5/weather?q=new%20orleans&units=imperial&appid=62559260c941ebf6fd752e2570f6c760', {mode: 'cors'});
+const displayUserError = () => {
+    // create the error message
+    const locationContainer = document.querySelector("#location-container");
+    const message = document.createElement("p");
+    message.textContent = "Couldn't find this city. Please check your spelling";
+    message.id = "error_city";
+    locationContainer.appendChild(message);
+
+    //remove the error after 3 seconds
+    setTimeout(function removeElement () {
+        message.remove();
+    }, 4000);
+}
+
+const getCurrentWeather = async (requestedLocation, measurement) => {
+    try {        
+        const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${requestedLocation}&units=${measurement}&appid=62559260c941ebf6fd752e2570f6c760`, {mode: 'cors'});
         const weatherData = await response.json();
 
+        //check if user's city is valid - display error if not
+        if (weatherData.message == 'city not found') {
+            displayUserError();
+        }
         
         //receives the data
         const city =  weatherData.name;
         const temp =  weatherData.main.temp;
-        const highTemp =  weatherData.main.temp_max;
-        const lowTemp =  weatherData.main.temp_min;
         const feelsLike =  weatherData.main.feels_like;
         const humidity =  weatherData.main.humidity;
         const weatherType =  weatherData.weather[0].main;
         const windSpeed =  weatherData.wind.speed;
 
-        return { city, temp, highTemp, lowTemp, feelsLike, humidity, weatherType, windSpeed };
-
-    } catch(err) {
-        console.error("Something went wrong");
-    } 
-
-};
-
- const displayCurrentWeather = async () => {
-    try { 
-        const weatherData = await getCurrentWeather();
 
         const displayTemperature = (temperature) => {
             //temperature needs to be rounded to closest whole number
@@ -65,30 +71,56 @@ const getCurrentWeather = async (requestedLocation) => {
             const roundSpeed= (() => Math.round(wind))();
 
             const display = document.querySelector("#current-wind");
-            display.textContent = `Wind: ${roundSpeed} mph`;
+            //UI needs to update based on measurement
+            if (measurement == "imperial") {
+                display.textContent = `Wind: ${roundSpeed} mph`;
+            }
+
+            else {
+                display.textContent = `Wind: ${roundSpeed} kph`;
+            }
         };
 
+        const updateUI = (() => {
+            displayTemperature(temp);
+            displayCity(city);
+            displayType(weatherType);
+            displayHumidity(humidity);
+            displayFeelsLike(feelsLike);
+            displayWind(windSpeed);
+            
+            // apply the appropiate background
+            if (weatherType == "Clouds") {
+                applyCloudyBackground();
+            }
+
+            else if (weatherType == "Mist") {
+                applyRainyBackground();
+            }
+            
+            else if (weatherType == "Rain") {
+                applyRainyBackground();
+            }
+
+            else if (weatherType == "Snow") {
+                applySnowyBackground();
+            }
+
+            else {
+                applySunnyBackground();
+            }
+
+        })();
 
 
+    } catch(err) {
+        console.error("Something went wrong with the current conditions");
+    } 
 
-        
-        
-        
-        displayTemperature(weatherData.temp);
-        displayCity(weatherData.city);
-        displayType(weatherData.weatherType);
-        displayHumidity(weatherData.humidity);
-        displayFeelsLike(weatherData.feelsLike);
-        displayWind(weatherData.windSpeed);
-
-
-    }
-    catch (error) {
-        console.error("Current weather couldn't be loaded");
-    }
 };
 
-export default displayCurrentWeather;
+
+export default getCurrentWeather;
 
 
 
