@@ -3,6 +3,7 @@ Track today's local weather (or anywhere's really)!
 
 
 ### Live Link
+https://andrewleach94.github.io/weather-app/
 
 #### Overview
 My first API project. Track the weather in the city of your choosing. This app is made possible by the OpenWeather API.

@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _weather_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weather-data */ \"./src/weather-data.js\");\n/* harmony import */ var _interface_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./interface.js */ \"./src/interface.js\");\n\r\n\r\n\r\nwindow.addEventListener(\"load\", () => {\r\n    (0,_weather_data__WEBPACK_IMPORTED_MODULE_0__.default)(\"New Orleans\", \"imperial\");\r\n    (0,_interface_js__WEBPACK_IMPORTED_MODULE_1__.applyEventListeners)();\r\n});\r\n\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _weather_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weather-data */ \"./src/weather-data.js\");\n/* harmony import */ var _interface_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./interface.js */ \"./src/interface.js\");\n\r\n\r\n\r\ndocument.onreadystatechange = function () {\r\n    if (document.readyState === 'loading') {\r\n      const loadScreen = document.createElement(\"div\");\r\n      loadScreen.id = \"load-screen\";\r\n      document.body.appendChild(loadScreen);\r\n    }\r\n  };\r\n\r\nwindow.addEventListener(\"load\", () => {\r\n    (0,_weather_data__WEBPACK_IMPORTED_MODULE_0__.default)(\"New Orleans\", \"imperial\");\r\n    (0,_interface_js__WEBPACK_IMPORTED_MODULE_1__.applyEventListeners)();\r\n});\r\n\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
 
 /***/ }),
 
