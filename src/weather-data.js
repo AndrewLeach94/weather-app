@@ -16,7 +16,7 @@ const displayUserError = () => {
 
 const getCurrentWeather = async (requestedLocation, measurement) => {
     try {        
-        const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${requestedLocation}&units=${measurement}&appid=62559260c941ebf6fd752e2570f6c760`, {mode: 'cors'});
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${requestedLocation}&units=${measurement}&appid=62559260c941ebf6fd752e2570f6c760`, {mode: 'cors'});
         const weatherData = await response.json();
 
         //check if user's city is valid - display error if not
