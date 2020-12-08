@@ -5,10 +5,10 @@ html, body {
 
 :root {
     --font_primary: 'Cabin', sans-serif;
-    --background_sunny: linear-gradient(144deg, rgba(0, 107, 193, 0.85) 0%, rgba(255,255,255,0.55) 70%), url(../dist/images/sunny.webp);
-    --background_cloudy: linear-gradient(144deg, rgba(11,11,11,0.8) 0%, rgba(255,255,255,0.4) 80%), url(../dist/images/clouds.webp);
-    --background_rainy: linear-gradient(144deg, rgba(11,11,11,0.80) 0%, rgba(255,255,255, 0.6) 100%), url(../dist/images/rain.webp);
-    --background_snowy: linear-gradient(144deg, rgba(11,11,11,0.8) 0%, rgba(255,255,255, 0.8) 95%), url(../dist/images/snow.webp);
+    --background_sunny: linear-gradient(144deg, rgba(0, 107, 193, 0.85) 0%, rgba(255,255,255,0.55) 70%), url(images/sunny.webp);
+    --background_cloudy: linear-gradient(144deg, rgba(11,11,11,0.8) 0%, rgba(255,255,255,0.4) 80%), url(images/clouds.webp);
+    --background_rainy: linear-gradient(144deg, rgba(11,11,11,0.80) 0%, rgba(255,255,255, 0.6) 100%), url(images/rain.webp);
+    --background_snowy: linear-gradient(144deg, rgba(11,11,11,0.8) 0%, rgba(255,255,255, 0.8) 95%), url(images/snow.webp);
 }
 
 body {
