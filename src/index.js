@@ -1,5 +1,5 @@
-import getCurrentWeather from "./weather-data";
 import { applyEventListeners } from "./interface.js";
+import { getLocalWeather } from "./gpsLocation";
 
 document.onreadystatechange = function () {
     if (document.readyState === 'loading') {
@@ -10,6 +10,8 @@ document.onreadystatechange = function () {
   };
 
 window.addEventListener("load", () => {
-    getCurrentWeather("New Orleans", "imperial");
+    //attempt to fetch the user's local weather on load
+    getLocalWeather;
     applyEventListeners();
 });
+

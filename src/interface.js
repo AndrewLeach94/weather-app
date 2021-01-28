@@ -24,7 +24,7 @@ const updateLocation = () => {
     getCurrentWeather(newLocation, getMeasurement());
 };
 
-const convertToMetric = () => {
+export const convertToMetric = () => {
     // take the current location and re-run the API call requesting metric units
     const currentLocation = document.querySelector("#current-city").textContent;
     getCurrentWeather(currentLocation, "metric");
@@ -61,6 +61,11 @@ const convertToImperial = () => {
 
 const applyEventListeners = () => {
     submitLocation.addEventListener("click", updateLocation);
+    inputLocation.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            updateLocation();
+        }
+    });
     metricSelector.addEventListener("click", convertToMetric);
 };
 
