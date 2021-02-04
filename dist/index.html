@@ -9,17 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Sniglet&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="css/normalize.css"></head>
     <link rel="stylesheet" type="text/css" href="css/styles.css"></head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.6/lottie.min.js" integrity="sha512-BB7rb8ZBAxtdJdB7nwDijJH9NC+648xSzviK9Itm+5APTtdpgKz1+82bDl4znz/FBhd0R7pJ/gQtomnMpZYzRw==" crossorigin="anonymous"></script>
 <body>
     <main>
         <div id="location-container">
             <div id="measurement-container">
                 <button id="metric" class="button_measurement" type="button">C</button>
                 <button id="imperial" class="button_measurement-selected" type="button">F</button>
-            </div>    
+            </div>
             <label>
                 <input id="input_location" placeholder="Choose Location">
             </label>
-            <button id="submit_location" type="button"><i class="fas fa-arrow-right"></i></button>    
+            <button id="submit_location" type="button"><i class="fas fa-arrow-right"></i></button>        
         </div>    
         <div id="current-weather-container-primary">
             <p id="current-conditions"></p>
@@ -32,12 +33,12 @@
             <p id="current-wind"></p>
         </div>
     </main>
-    <footer>
-        <a href="https://github.com/AndrewLeach94">
+    <aside>
+        <a href="https://github.com/AndrewLeach94/weather-app">
             <i class="fa fa-github" aria-hidden="true"></i>
         </a>
-        <p>Designed by Andrew Leach</p>
-    </footer>
+    </aside>
+    <figure id="loading-animation-container"></figure>
     <script src="main.js"></script>
 </body>
 </html>

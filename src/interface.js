@@ -7,6 +7,19 @@ const display = document.querySelector("main");
 const imperialSelector = document.querySelector("#imperial");
 const metricSelector = document.querySelector("#metric");
 
+const loadingAnimation = bodymovin.loadAnimation({
+    container: document.querySelector("#loading-animation-container"),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: "https://assets9.lottiefiles.com/private_files/lf30_h7yc4tuw.json",
+})
+
+export const removeLoadingAnimation = () => {
+    const animationContainer = document.querySelector("#loading-animation-container");
+    animationContainer.remove();
+}
+
 
 const updateLocation = () => {
     const newLocation = inputLocation.value;
@@ -20,11 +33,18 @@ const updateLocation = () => {
                 return "metric";
             }
         };
+        
+    const clearInput = () => {
+        inputLocation.value = '';
+    };
+    
 
     getCurrentWeather(newLocation, getMeasurement());
+    clearInput()
+
 };
 
-const convertToMetric = () => {
+export const convertToMetric = () => {
     // take the current location and re-run the API call requesting metric units
     const currentLocation = document.querySelector("#current-city").textContent;
     getCurrentWeather(currentLocation, "metric");
@@ -61,6 +81,11 @@ const convertToImperial = () => {
 
 const applyEventListeners = () => {
     submitLocation.addEventListener("click", updateLocation);
+    inputLocation.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            updateLocation();
+        }
+    });
     metricSelector.addEventListener("click", convertToMetric);
 };
 

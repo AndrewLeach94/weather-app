@@ -16,6 +16,7 @@ body {
     line-height: 1.5;
     font-family: var(--font_primary);
     color: whitesmoke;
+    background: var(--background_sunny);
 }
 
 button {
@@ -29,6 +30,18 @@ main {
     height: 100vh;
     padding-left: 140px;
 
+}
+
+#loading-animation-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 40vw;
+    max-height: 40vh;
+    animation: 1s fadeIn linear;
 }
 
 #measurement-container {
@@ -129,25 +142,59 @@ input::placeholder {
 }
 
 .fa {
-    margin-right: 10px;
+    color: white;
+    font-size: 3.1rem;
 }
 
-footer {
+aside {
     font-size: 1rem;
     position: absolute;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    bottom: 0;
+    align-items: flex-start;
+    top: 0;
     right: 0;
-    width: 100%;
+    width: 10%;
+    height: 20%;
+    background-color: black;
+    padding-right: 20px;
+    padding-top: 20px;
     margin: auto;
-    padding-right: 50px;
     color: black;
-    font-family: var(--font_secondary);
+    clip-path: polygon(50% 0, 100% 0, 100% 75%, 0px 0);
+}
+
+/* ------------------------------- ANIMATIONS  -------------------------------------------- */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* ------------------------------- MEDIA QUERIES -------------------------------------------- */
+
+@media (max-width: 1366px) {
+    aside {
+        width: 15%;
+        clip-path: polygon(50% 0, 100% 0, 100% 80%, 0px 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .fa {
+        font-size: 2.3rem;
+    }
+
+    aside {
+        width: 15%;
+        clip-path: polygon(50% 0, 100% 0, 100% 60%, 0px 0);
+    }
+}
 
 @media (max-width: 600px) {
     html {
@@ -178,8 +225,13 @@ footer {
         height: 40px;
     }
 
-    footer {
-        justify-content: center;
-        padding-right: 0;
+    .fa {
+        font-size: 1.7rem;
+    }
+
+    aside {
+        padding: 20px 10px 0 0;
+        width: 15%;
+        clip-path: polygon(50% 0, 100% 0, 100% 60%, 0px 0);
     }
 }
