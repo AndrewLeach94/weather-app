@@ -13,3 +13,6 @@ https://andrewleach94.github.io/weather-app/
 
 #### Overview
 My first API project. See real time weather data at your location or the city of your choosing. It includes customizable units and dynamic backgrounds that change based on the current conditions. This app is made possible by the OpenWeather API. 
+
+##### To install locally:
+This just requires the webpack client to run locally. Simply run `npm install webpack webpack-cli --save-dev` followed by `npm run build` to launch the live server.
