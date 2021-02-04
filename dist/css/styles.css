@@ -16,6 +16,7 @@ body {
     line-height: 1.5;
     font-family: var(--font_primary);
     color: whitesmoke;
+    background: var(--background_sunny);
 }
 
 button {
@@ -29,6 +30,18 @@ main {
     height: 100vh;
     padding-left: 140px;
 
+}
+
+#loading-animation-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 40vw;
+    max-height: 40vh;
+    animation: 1s fadeIn linear;
 }
 
 #measurement-container {
@@ -149,6 +162,18 @@ aside {
     margin: auto;
     color: black;
     clip-path: polygon(50% 0, 100% 0, 100% 75%, 0px 0);
+}
+
+/* ------------------------------- ANIMATIONS  -------------------------------------------- */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* ------------------------------- MEDIA QUERIES -------------------------------------------- */
